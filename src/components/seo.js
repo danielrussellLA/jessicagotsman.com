@@ -33,7 +33,17 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`${title} | Marketing Manager`}
+      link={[
+        {
+          href: `https://fonts.googleapis.com/css?family=Inter`,
+          rel: `stylesheet`
+        },
+        {
+          href: `https://fonts.googleapis.com/css?family=Roboto+Slab`,
+          rel: `stylesheet`
+        }
+      ]}
       meta={[
         {
           name: `description`,

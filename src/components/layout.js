@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { css } from '@emotion/core'
 
 import Header from "./header"
 import "./layout.css"
@@ -18,6 +19,7 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
@@ -25,19 +27,20 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        description={data.site.siteMetadata.description}
+      />
+      <div>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        <footer css={css`
+          font-family: 'Roboto Slab', sans-serif;
+          text-align: center;
+          padding: 1rem;
+          background: #000;
+          color: white;
+        `}>
+          © {new Date().getFullYear()}, Jessica Gotsman
         </footer>
       </div>
     </>
